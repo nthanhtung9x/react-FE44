@@ -6,7 +6,7 @@ class ProductComponent extends Component {
             <div className="card">
                 <img src="https:picsum.photos/300/300" className="card-img-top" alt="..." />
                 <div className="card-body">
-                    <h5 className="card-title text-primary">Item</h5>
+                    <h5 className="card-title tex">Item</h5>
                     <p className="font-weight-bold">$24.99</p>
                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
