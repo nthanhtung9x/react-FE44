@@ -7,6 +7,10 @@ import Main from './Components/BaiTapThucHanhLayout/Main';
 import EventBinding from './EventBinding/EventBinding';
 import HandleState from './HandleState/HandleState';
 import BaiTapChonXe from './HandleState/BaiTapChonXe';
+import RenderWithMap from './RenderWithMap/RenderWithMap';
+import EXRender from './RenderWithMap/EXRender';
+import DemoProps from './Props/DemoProps';
+import BT2ProductList from './Props/BT2ProductList/BT2ProductList';
 class App extends Component {
   render() {
     return (
@@ -15,10 +19,14 @@ class App extends Component {
         <DemoClass/> */}
         {/* <BaiTapLayout/> */}
         {/* <DataBinding/> */}
-        <Main/>
+        {/* <Main/> */}
         {/* <EventBinding/> */}
         {/* <HandleState/> */}
         {/* <BaiTapChonXe/> */}
+        {/* <RenderWithMap/> */}
+        {/* <EXRender/> */}
+        {/* <DemoProps/> */}
+        <BT2ProductList/>
       </div>
     );
   }
