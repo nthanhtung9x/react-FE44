@@ -11,6 +11,10 @@ import RenderWithMap from './RenderWithMap/RenderWithMap';
 import EXRender from './RenderWithMap/EXRender';
 import DemoProps from './Props/DemoProps';
 import BT2ProductList from './Props/BT2ProductList/BT2ProductList';
+import DemoPropsFunction from './Props/DemoPropsFunction/DemoPropsFunction';
+import BTGioHang from './Props/BaiTapGioHangProps/BTGioHang';
+
+import './App.css';
 class App extends Component {
   render() {
     return (
@@ -26,7 +30,9 @@ class App extends Component {
         {/* <RenderWithMap/> */}
         {/* <EXRender/> */}
         {/* <DemoProps/> */}
-        <BT2ProductList/>
+        {/* <BT2ProductList/> */}
+        {/* <DemoPropsFunction/> */}
+        <BTGioHang/>
       </div>
     );
   }
