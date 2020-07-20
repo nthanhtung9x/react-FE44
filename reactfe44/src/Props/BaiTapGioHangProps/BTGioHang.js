@@ -29,9 +29,9 @@ class BTGioHang extends Component {
         })
         if(findProduct >= 0) {
             let temp = [...this.state.cart];
-            temp.splice(findProduct,1,{
-                ...temp[findProduct],
-                count: temp[findProduct].count + 1
+            temp[findProduct].count += 1;
+            this.setState({
+                cart: temp
             })
             this.setState({
                 cart: temp
