@@ -15,6 +15,7 @@ import DemoPropsFunction from './Props/DemoPropsFunction/DemoPropsFunction';
 import BTGioHang from './Props/BaiTapGioHangProps/BTGioHang';
 
 import './App.css';
+import BaiTapGioHangRedux from './ReduxDemo/BaiTapGioHangRedux';
 class App extends Component {
   render() {
     return (
@@ -32,7 +33,8 @@ class App extends Component {
         {/* <DemoProps/> */}
         {/* <BT2ProductList/> */}
         {/* <DemoPropsFunction/> */}
-        <BTGioHang/>
+        {/* <BTGioHang/> */}
+        <BaiTapGioHangRedux/>
       </div>
     );
   }

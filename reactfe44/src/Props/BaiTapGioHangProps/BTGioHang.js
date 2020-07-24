@@ -39,6 +39,38 @@ class BTGioHang extends Component {
             })
         }
     }
+
+    handleDeleteProductInCart = (id) => {
+        let findProduct = this.state.cart.findIndex(data => {
+            return data.maSP === id;
+        });
+        let temp = [...this.state.cart];
+        temp.splice(findProduct,1);
+        this.setState({
+            cart: temp
+        });
+    };
+
+    handleChangeCount = (id, num) => {
+        let findProduct = this.state.cart.findIndex(data => {
+            return data.maSP === id;
+        });
+        let temp = [...this.state.cart];
+        if(findProduct !== -1){
+            if(num) {
+                temp[findProduct].count +=1;
+            } else {
+                if(this.state.cart[findProduct].count <= 1) {
+                    alert('Số lượng tối thiểu là 1');
+                } else {
+                    temp[findProduct].count -=1;
+                }
+            }
+            this.setState({
+                cart : [...temp]
+            });
+        }
+    };
     
     render() {
         return (
@@ -50,7 +82,7 @@ class BTGioHang extends Component {
                     :
                     <></>
                 }    
-                <ModalCart item={this.state.cart}/>
+                <ModalCart item={this.state.cart} handleDeleteProductInCart={this.handleDeleteProductInCart} handleChangeCount={this.handleChangeCount}/>
             </div>
         );
 

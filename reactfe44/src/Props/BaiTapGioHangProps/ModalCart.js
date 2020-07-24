@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 
 class ModalCart extends Component {
-    // componentDidUpdate(prevProps) {
-    //     if(this.props.item !== prevProps.item){
-    //         let { item } = this.props;
-            
-    //     } 
-    // }
 
     renderCart = () => {
         return this.props.item.map((item,index) => {
@@ -14,8 +8,21 @@ class ModalCart extends Component {
                 <td><img src={item.hinhAnh} alt={item.hinhAnh} width="100" height="100" /></td>
                 <td>{item.tenSP}</td>
                 <td>{item.giaBan.toLocaleString()}</td>
-                <td>{item.count}</td>
+                <td>
+                    <button className="btn btn-primary" onClick={() => {
+                        this.props.handleChangeCount(item.maSP, false)
+                    }}>-</button>
+                    {item.count}
+                    <button className="btn btn-primary" onClick={() => {
+                        this.props.handleChangeCount(item.maSP, true)
+                    }}>+</button>
+                </td>
                 <td>{(item.count * item.giaBan).toLocaleString()}</td>
+                <td>
+                    <button className="btn btn-danger" onClick={() => {
+                        this.props.handleDeleteProductInCart(item.maSP)
+                    }}>Xóa</button>
+                </td>
             </tr>
         })
     }
@@ -49,8 +56,8 @@ class ModalCart extends Component {
                                         <th>Thành Tiền</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    {this.renderCart()}
+                                <tbody className="text-center">
+                                    { this.props.item.length > 0 ? this.renderCart() : <tr><td colSpan="5"><p className="text-center my-2">Không có sản phẩm trong giỏ hàng.</p></td></tr>}
                                 </tbody>
                                 <tfoot>
                                     <tr>
