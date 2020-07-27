@@ -1,0 +1,8 @@
+@font-face {
+    font-family: fPony;
+    src: url('./Pony.ttf');
+}
+
+.gameBauCua {
+    font-family: fPony;
+}

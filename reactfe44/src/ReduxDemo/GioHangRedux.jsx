@@ -31,7 +31,7 @@ class GioHangRedux extends Component {
     countTotal = () => {
         return this.props.BaiTapGioHangReducer.stateGioHang.reduce((total, item) => {
             return total += (item.giaBan * item.count);
-        },0);
+        },0).toLocaleString();
     }
 
     render() {
@@ -54,7 +54,7 @@ class GioHangRedux extends Component {
                     <tfoot>
                         <tr>
                             <td colSpan="4" className="text-right">Thành tiền</td>
-                            <td colSpan="1">0</td>
+                            <td colSpan="1">{this.countTotal()}</td>
                         </tr>
                     </tfoot>
                 </table> 
@@ -69,6 +69,34 @@ const mapStateToProps = state => {
     return {
         BaiTapGioHangReducer: state.BaiTapGioHangReducer
     }
+};
+
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        handleChangeCount: (maSP, num) => {
+            let spGH = {
+                maSP,
+                num
+            };
+            let action = {
+                type: 'CHANGE_COUNT_TO_CART',
+                spGH
+            };
+            
+            // Dùng hàm dispatch gửi giá trị lên reducer để set lại state.
+            dispatch(action);
+        },
+        handleDeleteProductInCart: (maSP) => {
+            let spGH = {
+                maSP
+            };
+            let action = {
+                type: 'DELETE_TO_CART',
+                spGH
+            }
+            dispatch(action);
+        }
+    }
 }
 
-export default connect(mapStateToProps)(GioHangRedux);
+export default connect(mapStateToProps,mapDispatchToProps)(GioHangRedux);
