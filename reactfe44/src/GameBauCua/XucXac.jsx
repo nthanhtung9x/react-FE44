@@ -3,6 +3,16 @@ import { connect } from 'react-redux';
 
 class XucXac extends Component {
 
+    showAlert = () => {
+        if(this.props.result < 0) {
+            alert(`Bạn lỗ ${Math.abs(this.props.result)} $`);
+        } else if(this.props.result > 0) {
+            alert(`Bạn lãi ${Math.abs(this.props.result)} $`)
+        } else {
+            alert(`Huề tiền`);
+        }
+    };
+
     render() {
         return (
             <>
@@ -20,7 +30,7 @@ class XucXac extends Component {
                         position:'absolute',
                         top:'30%',
                         left:'20%',
-                        transform:'translateY(-50%)'
+                        transform:'translateY(-50%)',
                     }}/>
                     <img src={this.props.list[1].img} alt={this.props.list[1].ma} width="70" height="70" style={{
                         position:'absolute',
@@ -36,10 +46,13 @@ class XucXac extends Component {
                     }}/>
                 </div>
                 <div className="mt-4">
-                    <button>
-                        <img src="./images/soc.png" alt="soc" width="200" onClick={() => {
-                            this.props.handlePlay(Math.random()*12,Math.random()*12,Math.random()*12)
-                        }}/>
+                    <button disabled={this.props.visible ? true : false} onClick={async() => {
+                            await this.props.handlePlay(true);
+                            setTimeout(() => {
+                                this.showAlert();
+                            },1000);
+                        }}>
+                        <img src="./images/soc.png" alt="soc" width="200" />
                     </button>
                 </div>   
             </>
@@ -49,18 +62,18 @@ class XucXac extends Component {
 
 const mapStateToProps = state => {
     return {
-        list: state.BaiTapGameBauCuaReducer.XucXac
+        list: state.BaiTapGameBauCuaReducer.XucXac,
+        visible: state.BaiTapGameBauCuaReducer.visible,
+        result: state.BaiTapGameBauCuaReducer.result
     }
 };
 
 const mapDispatchToProps = (dispatch, action) => {
     return {
-        handlePlay: (num1,num2,num3) => {
+        handlePlay: (visible) => {
             dispatch({
                 type: 'HANDLE_PLAY',
-                num1,
-                num2,
-                num3
+                visible
             })
         }
     }

@@ -17,6 +17,7 @@ import BTGioHang from './Props/BaiTapGioHangProps/BTGioHang';
 import './App.css';
 import BaiTapGioHangRedux from './ReduxDemo/BaiTapGioHangRedux';
 import BaiTapGameBauCua from './GameBauCua/BaiTapGameBauCua';
+import GameXucXac from './GameXucXac/GameXucXac';
 class App extends Component {
   render() {
     return (
@@ -36,7 +37,8 @@ class App extends Component {
         {/* <DemoPropsFunction/> */}
         {/* <BTGioHang/> */}
         {/* <BaiTapGioHangRedux/> */}
-        <BaiTapGameBauCua/>
+        {/* <BaiTapGameBauCua/> */}
+        <GameXucXac/>
       </div>
     );
   }

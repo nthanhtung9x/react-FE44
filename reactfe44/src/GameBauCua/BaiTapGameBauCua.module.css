@@ -6,3 +6,17 @@
 .gameBauCua {
     font-family: fPony;
 }
+/* 
+@keyframes animationXucXac {
+    0% {transform: translateX(-2%);}
+    20% {transform: translateX(-1%);}
+    40% {transform: translateX(0%);}
+    60% {transform: translateX(2%);}
+    80% {transform: translateX(0%);}
+    100% {transform: translateX(-2%);}
+}
+
+.xucXac {
+    transform: translateX(0%);
+    animation: animationXucXac 5s infinite;
+} */

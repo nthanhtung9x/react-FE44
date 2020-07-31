@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class DanhSachCuoc extends Component {
-
+ 
     renderList = () => {
         return this.props.list.map((item, index) => {
             return  <div className="col-4 text-center" key={index}>
                         <img src={item.img} alt={item.ten}/>
-                        <button className="btn btn-success my-2" onClick={() => {
+                        <button className="btn btn-success my-2" style={{fontSize:20}} onClick={() => {
+                            this.props.handleChange(item.ma, -10)
+                        }}>-</button>
+                        <span className="text-success mx-2">Cược: {item.cuoc}</span>
+                        <button className="btn btn-success my-2" style={{fontSize:20}} onClick={() => {
                             this.props.handleChange(item.ma, 10)
-                        }}>Cược: {item.cuoc}</button>
+                        }}>+</button>
                     </div>
         })
     }
