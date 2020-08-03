@@ -6,3 +6,11 @@
 .gameXucXac {
     font-family: fPony;
 }
+
+@keyframes animationXucXac {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+.xucXac {
+    animation: animationXucXac 0.5s infinite;
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BanCuoc from './BanCuoc';
 import KetQuaTroChoi from './KetQuaTroChoi';
 import styleXucXac from './GameXucXac.module.css';
+
 class GameXucXac extends Component {
     render() {
         return (

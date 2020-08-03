@@ -11,13 +11,29 @@ class KetQuaTroChoi extends Component {
                 }}>Bạn chọn: <span className="text-primary" style={{fontSize:'42px'}}>{this.props.banChon}</span></p>
                  <p style={{
                     fontSize:'32px'
-                }}>Bàn thắng: <span className="text-secondary" style={{fontSize:'42px'}}>{this.props.soBanThang}</span></p>
+                }}>Bạn thắng: <span className="text-secondary" style={{fontSize:'42px'}}>{this.props.soBanThang}</span></p>
                 <p style={{
                     fontSize:'32px'
                 }}>Tổng số bàn chơi: <span className="text-danger" style={{fontSize:'42px'}}>{this.props.SoBanChoi}</span></p>
                 <button className="btn btn-success" style={{
                     fontSize:'32px'
-                }}>Chơi game</button>
+                }}
+                    onClick={() => {
+                        if(!this.props.banChon) {
+                            alert('Vui lòng chọn Tài hoặc Xỉu !!!');
+                            return;
+                        }
+                        let n = 0;
+                        let randomInterval = setInterval(() => {
+                            this.props.randomXucXac()
+                            n++;
+                            if(n === 5) {
+                                clearInterval(randomInterval);
+                                this.props.handlePlay(this.props.banChon);
+                            }
+                        },500);
+                    }}
+                >Chơi game</button>
             </div>
         );
     }
@@ -33,7 +49,17 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
-
+        handlePlay: (banChon) => {
+            dispatch({
+                type: 'HANDLE_PLAY',
+                banChon
+            })
+        },
+        randomXucXac: () => {
+            dispatch({
+                type: 'RANDOM',
+            })
+        }
     }
 };
 

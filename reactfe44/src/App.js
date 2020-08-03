@@ -18,6 +18,7 @@ import './App.css';
 import BaiTapGioHangRedux from './ReduxDemo/BaiTapGioHangRedux';
 import BaiTapGameBauCua from './GameBauCua/BaiTapGameBauCua';
 import GameXucXac from './GameXucXac/GameXucXac';
+import FormValidation from './Form_Validation/Form_Validation';
 class App extends Component {
   render() {
     return (
@@ -38,7 +39,8 @@ class App extends Component {
         {/* <BTGioHang/> */}
         {/* <BaiTapGioHangRedux/> */}
         {/* <BaiTapGameBauCua/> */}
-        <GameXucXac/>
+        {/* <GameXucXac/> */}
+        <FormValidation/>
       </div>
     );
   }
