@@ -98,17 +98,17 @@ class FormValidation extends Component {
     //     })
     // };
 
-    static getDerivedStateFromProps(newProps, currentState) {
+    // static getDerivedStateFromProps(newProps, currentState) {
 
         
-        let { nguoiDungEdit } = newProps;
-        if(!_.isEqual(nguoiDungEdit.taiKhoan, currentState.values.taiKhoan)) {
-            let newState = {...currentState,values: nguoiDungEdit};
-            return newState; // Trả về state mới
-        }
+    //     let { nguoiDungEdit } = newProps;
+    //     if(!_.isEqual(nguoiDungEdit, currentState.values)) {
+    //         let newState = {...currentState,values: nguoiDungEdit};
+    //         return newState; // Trả về state mới
+    //     }
 
-        return null;
-    };
+    //     return null;
+    // };
 
     render() {
         // let { taiKhoan, matKhau, hoTen, soDt, email, maLoaiNguoiDung} = this.props.nguoiDungEdit;
@@ -174,13 +174,15 @@ class FormValidation extends Component {
             </>
         );
     }
-    // componentDidUpdate(prevProps, prevState) { // nhận vào props
-    //     if(!_.isEqual(prevProps.nguoiDungEdit, this.props.nguoiDungEdit)) {
-    //         this.setState({
-    //             values: 
-    //         })
-    //     }
-    // };
+  
+    componentDidUpdate(prevProps, prevState) { // nhận vào props trước khi thay đổi và state hiện tại.
+        // so sánh props trước khi thay đổi và props hiện tại khác nhau không nếu kahcs nhau làn gười dùng mới bấm nút chỉnh sửa chứ không phải thay đổi data input => setState, còn người dùng thay đổi input thì props cũ và props mới giống nhau nên không chạy vào hàm này.
+        if(!_.isEqual(prevProps.nguoiDungEdit, this.props.nguoiDungEdit)) {
+            this.setState({
+                values: this.props.nguoiDungEdit
+            })
+        }
+    };
 }
 
 const mapStateToProps = state => (

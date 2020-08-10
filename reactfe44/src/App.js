@@ -20,6 +20,11 @@ import BaiTapGameBauCua from './GameBauCua/BaiTapGameBauCua';
 import GameXucXac from './GameXucXac/GameXucXac';
 import FormValidation from './Form_Validation/Form_Validation';
 import ReactLifeCycle from './ReactLifeCycle/ReactLifeCycle';
+import BaiTapBurger from './Burger/BaiTapBurger';
+import DatVeXemPhim from './DatVeXemPhim/DatVeXemPhim';
+import BaiTapForm from './BaiTapForm/BaiTapForm';
+import PureComponentDemo from './PureComponentDemo/PureComponentDemo';
+import AjaxAPI from './AjaxAPI/AjaxAPI';
 class App extends Component {
   render() {
     return (
@@ -43,6 +48,11 @@ class App extends Component {
         {/* <GameXucXac/> */}
         <FormValidation/>
         {/* <ReactLifeCycle/> */}
+        {/* <BaiTapBurger/> */}
+        {/* <DatVeXemPhim/> */}
+        {/* <BaiTapForm/> */}
+        {/* <PureComponentDemo/> */}
+        {/* <AjaxAPI/> */}
       </div>
     );
   }

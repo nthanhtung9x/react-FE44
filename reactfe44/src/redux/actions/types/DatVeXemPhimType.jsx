@@ -1,0 +1,4 @@
+export const HANDLE_CHANGE = 'HANDLE_CHANGE';
+export const DELETE_TICKET = 'DELETE_TICKET';
+export const BOOK_TICKET = 'BOOK_TICKET';
+
